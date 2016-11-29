@@ -1,0 +1,24 @@
+﻿@model HelperMethods.Models.Person
+@{
+    ViewBag.Title = "CreatePerson";
+    Html.EnableClientValidation(false);
+}
+
+<h2>CreatePerson</h2>
+
+<form action="/Home/CreatePerson" method="post">
+    <div class="dataElem">
+        <label>PersonId</label>
+        @Html.Editor("PersonID")
+    </div>
+    <div class="dataElem">
+        <label>First Name</label>
+        @Html.Editor("FirstName")
+    </div>
+    <div class="dataElem">
+        <label>Last Name</label>
+        @Html.EditorFor(m=>m.LastName)
+    </div>
+    <input type="submit" value="Submit"/>
+</form>
+
