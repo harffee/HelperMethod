@@ -4,9 +4,16 @@
     Html.EnableClientValidation(false);
 }
 
-<h2>CreatePerson</h2>
+<h2>CreatePerson:@Html.LabelForModel()</h2>
 
-<form action="/Home/CreatePerson" method="post">
+@using (Html.BeginRouteForm("FormRoute",new { },FormMethod.Post,
+        new { @class = "personClass", data_formType = "person" }))
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Submit"/>
+}
+
+@*<form action="/Home/CreatePerson" method="post">
     <div class="dataElem">
         <label>PersonId</label>
         @Html.Editor("PersonID")
@@ -19,6 +26,14 @@
         <label>Last Name</label>
         @Html.EditorFor(m=>m.LastName)
     </div>
+    <div class="dataElem">
+        <label>Role</label>
+        @Html.EditorFor(m => m.Role)
+    </div>
+    <div class="dataElem">
+        <label>Birth Date</label>
+        @Html.EditorFor(m => m.BirthDate)
+    </div>
     <input type="submit" value="Submit"/>
-</form>
+</form>*@
 
