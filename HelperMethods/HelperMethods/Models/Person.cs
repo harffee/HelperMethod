@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace HelperMethods.Models
 {
+    [DisplayName("New Person")]
     public class Person
     {
         [HiddenInput(DisplayValue =false)]
         public int PersonId { get; set; } 
+        [Display(Name ="First")]
+        [UIHint("MultilineText")]
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDate { get; set;}
@@ -28,6 +33,6 @@ namespace HelperMethods.Models
 
     public enum Role
     {
-        Admin,User,Gust
+        Admin,User,Guest
     }
 }
